@@ -1,0 +1,19 @@
+version: "3.8"
+
+
+services:
+  api:
+    build: ./backend
+    ports: 
+      - 8080:8080
+
+  translationengine: 
+    build: ./LibreTranslate
+    ports: 
+      - 5000:5000
+  dbengine:
+    build: ./db
+    ports:
+      -3306:3306
+    enviroment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
